@@ -20,7 +20,7 @@ RUN echo 'APT::Get::Assume-Yes "true";' > /etc/apt/apt.conf.d/harness-ci && \
 	locale-gen en_US.UTF-8 && \
 	rm -rf /var/lib/apt/lists/* && \
 
-	useradd --uid=3434 --user-group --create-home harness-ci && \
+	useradd --uid=1000 --user-group --create-home harness-ci && \
 	echo 'harness ALL=NOPASSWD: ALL' >> /etc/sudoers.d/50-harness-ci && \
 	echo 'Defaults    env_keep += "DEBIAN_FRONTEND"' >> /etc/sudoers.d/env_keep && \
 	sudo -u harness-ci mkdir /home/harness-ci/project && \
