@@ -10,35 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     PAGER=cat
 
 # Configure environment
-RUN echo 'APT::Get::Assume-Yes "true";' > /etc/apt/apt.conf.d/harness-ci && \
-	echo 'DPkg::Options "--force-confnew";' >> /etc/apt/apt.conf.d/harness-ci && \
-	apt-get update && apt-get install -y \
-		curl \
-		locales \
-		sudo \
-	&& \
-	locale-gen en_US.UTF-8 && \
-	rm -rf /var/lib/apt/lists/* && \
 
-	useradd --uid=1000 --user-group --create-home harness-ci && \
-	echo 'harness ALL=NOPASSWD: ALL' >> /etc/sudoers.d/50-harness-ci && \
-	echo 'Defaults    env_keep += "DEBIAN_FRONTEND"' >> /etc/sudoers.d/env_keep && \
-	sudo -u harness-ci mkdir /home/harness-ci/project && \
-	sudo -u harness-ci mkdir /home/harness-ci/bin && \
-	sudo -u harness-ci mkdir -p /home/harness-ci/.local/bin && \
-
-	dockerizeArch=arm64 && \
-	if uname -p | grep "x86_64"; then \
-		dockerizeArch=x86_64; \
-	fi && \
-	curl -sSL --fail --retry 3 --output /usr/local/bin/dockerize "https://github.com/powerman/dockerize/releases/download/v0.8.0/dockerize-linux-${dockerizeArch}" && \
-	chmod +x /usr/local/bin/dockerize && \
-	dockerize --version
-
-ENV PATH=/home/harness-ci/bin:/home/harness-ci/.local/bin:$PATH \
-	LANG=en_US.UTF-8 \
-	LANGUAGE=en_US:en \
-	LC_ALL=en_US.UTF-8
 
 RUN noInstallRecommends="" && \
 	if [[ "22.04" == "22.04" ]]; then \
@@ -87,8 +59,7 @@ RUN noInstallRecommends="" && \
 	add-apt-repository ppa:git-core/ppa && apt-get install -y git && \
 	rm -rf /var/lib/apt/lists/*
 
-# Install Docker - needs the setup_remote_docker HarnessCI step to work
-
+# Install Docker - needs the setup_remote_docker CircleCI step to work
 ENV DOCKER_VERSION 5:20.10.18~3-0~ubuntu-
 RUN apt-get update && apt-get install -y \
 		apt-transport-https \
@@ -104,7 +75,6 @@ RUN apt-get update && apt-get install -y \
 	rm -rf /var/lib/apt/lists/*
 
 # Install Docker Compose - see prerequisite above
-
 ENV COMPOSE_VER 2.11.1
 ENV COMPOSE_SWITCH_VERSION 1.0.4
 RUN dockerPluginDir=/usr/local/lib/docker/cli-plugins && \
@@ -122,12 +92,3 @@ RUN dockerPluginDir=/usr/local/lib/docker/cli-plugins && \
 RUN curl -sSL "https://github.com/mikefarah/yq/releases/download/v4.27.5/yq_linux_amd64.tar.gz" | \
 	tar -xz -C /usr/local/bin && \
 	mv /usr/local/bin/yq{_linux_amd64,}
-
-USER harness-ci
-# Run commands and tests as harness-ci user
-RUN whoami && \
-	# opt-out of the new security feature, not needed in a CI environment
-	git config --global --add safe.directory '*'
-
-# Match the default HarnessCI working directory
-WORKDIR /home/harness-ci/project
