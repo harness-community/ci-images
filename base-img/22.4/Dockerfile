@@ -9,8 +9,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TERM=dumb \
     PAGER=cat
 
-# Configure environment
-
 
 RUN noInstallRecommends="" && \
 	if [[ "22.04" == "22.04" ]]; then \
@@ -36,8 +34,8 @@ RUN noInstallRecommends="" && \
 		libssl-dev \
 		libsqlite3-dev \
 		make \
+		python3 \
 		# for ssh-enabled builds
-		nano \
 		net-tools \
 		netcat \
 		openssh-client \
@@ -52,6 +50,7 @@ RUN noInstallRecommends="" && \
 		tar \
 		tzdata \
 		unzip \
+		python3-pip \
 		# for ssh-enabled builds
 		vim \
 		wget \
