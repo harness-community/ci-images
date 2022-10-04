@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM harness-ci-image/base-img/22.4
+FROM dhrubajyotichakraborty/ci-base-img:latest
 
 LABEL maintainer="Community Engineering Team <community-engg@harness.io.>"
 
