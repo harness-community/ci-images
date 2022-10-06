@@ -1,4 +1,4 @@
-# Harness-ci-image
+# Harness-CI-Image
 
 **ci-images/base-img** is an Ubuntu Docker image created by **Harness CI Community Engineering Team** with continuous integration builds in mind. This image is designed to serve as a base image for other Harness CI Custom Images.
 
