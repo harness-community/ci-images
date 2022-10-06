@@ -8,7 +8,7 @@ This image contains the minimum tools required to operate a build on Harness CI 
 
 | Languages | Link |
 | --- | --- |
-|Base Image| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/base-image/22.04/Dockerfile) 
+|CI-base Image| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/base-image/22.04/Dockerfile) 
 |Ruby|[Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/ruby/Dockerfile) |
 |Open JDK| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/openjdk/Dockerfile) |
 |Node| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/node/Dockerfile) 
