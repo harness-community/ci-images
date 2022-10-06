@@ -9,6 +9,6 @@ This image contains the minimum tools required to operate a build on Harness CI 
 | Language | Link |
 | --- | --- |
 | Base Imge| [Click Here](https://github.com/krishi0408/sample-app/blob/main/docs//overview.md) 
-| Ruby| A basic step by step tutorial to create Project and set up Pipeline | [Click Here](https://github.com/harness-community/python-pipeline-sample/blob/main/docs/CreatePipeline.md) |
-| Open JDK  [Click Here](https://github.com/harness-community/python-pipeline-sample/blob/main/docs/build.md) |
+| Ruby| [Click Here](https://github.com/harness-community/python-pipeline-sample/blob/main/docs/CreatePipeline.md) |
+| Open JDK |[Click Here](https://github.com/harness-community/python-pipeline-sample/blob/main/docs/build.md) |
 | Nodejs| [Click Here](https://github.com/harness-community/python-pipeline-sample/blob/main/docs/DockerPush.md.md) 
