@@ -16,4 +16,11 @@ This image contains the minimum tools required to operate a build on Harness CI 
 |PHP| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/php/Dockerfile) |
 |Python| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/python/Dockerfile) |
 
+### How does the base-img work
+This image contains the Ubuntu Linux operating system and everything needed to run most builds on Harness CI. This includes but is not limited to:
+- Git
+- Docker and Docker Compose
+- Dockerize
+- curl, ssh etc
+
 ### Note - Rust ,PHP and Python are in progress
