@@ -16,4 +16,4 @@ This image contains the minimum tools required to operate a build on Harness CI 
 |PHP| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/php/Dockerfile) |
 |Python| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/python/Dockerfile) |
 
-## Note - Rust ,PHP and Python are in progress
+### Note - Rust ,PHP and Python are in progress
