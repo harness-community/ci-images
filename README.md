@@ -23,7 +23,7 @@ This image contains the Ubuntu Linux operating system and everything needed to r
 - Dockerize
 - curl, ssh etc
 ### How does the custom images work
-1. **dhrubajyotichakraborty/ruby-ci-img:latest** is a Docker image created with continuous integration builds in mind. Each tag contains a complete Ruby version, the gem command, Bundler and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
-2. **dhrubajyotichakraborty/openjdk-ci-image:latest** is a Docker image created with continuous integration builds in mind. Each tag contains a version of OpenJDK, the Java Development Kit and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
-3. **dhrubajyotichakraborty/python-ci-img:latest** is a Docker image created with continuous integration builds in mind. Each tag contains a complete Python version via pyenv. pip, pipenv, and poetry are pre-installed, and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
+1. ```dhrubajyotichakraborty/ruby-ci-img:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a complete Ruby version, the gem command, Bundler and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
+2. ```dhrubajyotichakraborty/openjdk-ci-image:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a version of OpenJDK, the Java Development Kit and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
+3. ```dhrubajyotichakraborty/python-ci-img:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a complete Python version via pyenv. pip, pipenv, and poetry are pre-installed, and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
 ### Note - Rust ,PHP and Python are in progress
