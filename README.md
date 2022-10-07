@@ -26,4 +26,25 @@ This image contains the Ubuntu Linux operating system and everything needed to r
 1. ```dhrubajyotichakraborty/ruby-ci-img:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a complete Ruby version, the gem command, Bundler and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
 2. ```dhrubajyotichakraborty/openjdk-ci-image:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a version of OpenJDK, the Java Development Kit and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
 3. ```dhrubajyotichakraborty/python-ci-img:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a complete Python version via pyenv. pip, pipenv, and poetry are pre-installed, and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
-### Note - Rust ,PHP and Python images are in progress
+> Note - Rust ,PHP and Python images are in progress
+
+
+## Contributor License Agreement
+
+In order to clarify the intellectual property license granted with Contributions from any person or entity, Harness Inc. ("Harness") must have a Contributor License Agreement ("CLA") on file that has been read and followed by each contributor, indicating an agreement to the license terms [here](Contributor_License_Agreement.md). This license is for your protection as a Contributor as well as the protection of Harness; it does not change your rights to use your own Contributions for any other purpose.
+
+## Code of Conduct
+
+All users and contributors of the Harness community should adhere to the following [Code of Conduct](https://github.com/harness/community/blob/main/CODE_OF_CONDUCT.md)!
+
+## Communication
+
+Refer [Harness Community Communications Guide](https://github.com/harness-community/overview/blob/main/community_communication_guide.rst) to interact with the wider community users/contributors, join slack workgroups to get help/help other users and create topics in [community.harness.io](https://community.harness.io)
+
+### License
+
+Apache 2.0 License.
+
+See [COPYING](LICENSE) for more information.
+
+
