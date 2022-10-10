@@ -16,6 +16,7 @@ RUN noInstallRecommends="" && \
 		noInstallRecommends="--no-install-recommends"; \
 	fi && \
 	apt-get update && apt-get install -y $noInstallRecommends \
+	    elixir \
 		autoconf \
 		build-essential \
 		ca-certificates \
