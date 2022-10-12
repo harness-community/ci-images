@@ -14,9 +14,7 @@ This image contains the minimum tools required to operate a build on Harness CI 
 |Node| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/node)|
 |Rust| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/rust)|
 |PHP| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/php)|
-|Python| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/python)|
 |Android|[Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/android)|
-|Elixir|[Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/elixir)|
 
 ### How does the base-img work
 This image contains the Ubuntu Linux operating system and everything needed to run most builds on Harness CI. This includes but is not limited to:
