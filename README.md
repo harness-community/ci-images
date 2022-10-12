@@ -6,29 +6,51 @@ This image is should be useful for the users to use as a base for their own cust
 
 This image contains the minimum tools required to operate a build on Harness CI (such as git) as well as extremely popular and useful tools in Harness CI (such as docker).
 
-| Languages | Link |
-| --- | --- |
-|CI-base Image| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/base-image) 
-|Ruby|[Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/ruby)|
-|Open JDK| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/openjdk) |
-|Node| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/node)|
-|Rust| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/rust)|
-|PHP| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/php)|
-|Python| [Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/python)|
-|Android|[Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/android)|
-|Elixir|[Click Here](https://github.com/krishi0408/harness-ci-image/blob/main/custom-images/elixir)|
+### How does the ```base-img``` Image Works
 
-### How does the base-img work
-This image contains the Ubuntu Linux operating system and everything needed to run most builds on Harness CI. This includes but is not limited to:
+This image contains the Ubuntu Linux operating system and everything needed to run most builds on Harness Platform.
+
 - Git
 - Docker and Docker Compose
 - Dockerize
-- curl, ssh etc
+- The build-essential package containing compiling tools
+- jq
+- curl, ssh, and much more
+
+## Development Status
+
+Since there are many images, they are in different stages of their life cycle. This table will show where each image is and how "ready" they are to replace their predecessor.
+
+| Image Type | Support | Release Lifecycle | Github | Image | Image Size
+| --- | --- | --- | --- | --- | --- |
+| Base Image | Ubuntu (22.04) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/base-image) | [dhrubajyotichakraborty/ci-base-img:latest](https://hub.docker.com/layers/dhrubajyotichakraborty/ci-base-img/latest/images/sha256-7311c3cfcc7e7b3a002dde00fc2ee11494930850b79f8b88c9b7e6d63c513f04?context=repo) | 392.4 MB
+| Custom Image | OpenJDK (18.0.2) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/openjdk) | [dhrubajyotichakraborty/openjdk-ci-image:latest](https://hub.docker.com/repository/docker/dhrubajyotichakraborty/openjdk-ci-image) | 681.54 MB
+| Custom Image | Ruby (3.1.2) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/ruby) | [dhrubajyotichakraborty/ruby-ci-img:latest](https://hub.docker.com/repository/docker/dhrubajyotichakraborty/ruby-ci-img) | 659.2 MB
+| Custom Image | Python (3.6) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/python) | [dhrubajyotichakraborty/python-ci-img:latest](https://hub.docker.com/repository/docker/dhrubajyotichakraborty/python-ci-image) | 392.4 MB
+| Custom Image | Node (18.9) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/node/18.9) | [dhrubajyotichakraborty/node-ci-img:latest](https://hub.docker.com/layers/dhrubajyotichakraborty/node-ci-img/latest/images/sha256-5e1c73e8662360362c4a7ea68bcb3eb1b0d23fc1146a14e92a39a6c0a5c70cef?context=repo) | 459.9 MB
+| Custom Image | Node (18.6) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/node/18.6) | [dhrubajyotichakraborty/node-ci-img:18.6.0](https://hub.docker.com/layers/dhrubajyotichakraborty/node-ci-img/18.6.0/images/sha256-19449dff3a88bfa4de4542e871e03c73b45e0d220894c672ab147327583ca3b1?context=repo) | 415.6 MB
+| Custom Image | Node (18.5) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/node/18.5) | [dhrubajyotichakraborty/node-ci-img:18.5.0](https://hub.docker.com/layers/dhrubajyotichakraborty/node-ci-img/18.5.0/images/sha256-8a4d8eb6cc93b542a494f9a8959709a22581d06d29873daa689db787887a2a89?context=repo) | 415.56 MB
+| Custom Image | Node (18.4) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/node/18.4) | [dhrubajyotichakraborty/node-ci-img:18.4.0](https://hub.docker.com/layers/dhrubajyotichakraborty/node-ci-img/18.4.0/images/sha256-32717d8dfefe6b4de7737f8beeda2ca1fa3938b3837599a93bc999ec41ab1fae?context=repo) | 372 MB
+| Custom Image | Node (18.0) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/node/18.0) | [dhrubajyotichakraborty/node-ci-img:18.0.0](https://hub.docker.com/layers/dhrubajyotichakraborty/node-ci-img/18.0.0/images/sha256-966c87def0e3645c30e6250ffad210d4a2b72c33c75914e1414791d2461c54d3?context=repo) | 372 MB
+| Custom Image | Node (17.9.1) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/node/17.9) | [dhrubajyotichakraborty/node-ci-img:17.9.1](https://hub.docker.com/layers/dhrubajyotichakraborty/node-ci-img/17.9.1/images/sha256-11ba7dde4e3a464f357cb53bfa165fd8db0fe19c667e46963f1de1440f000f43?context=repo) | 372 MB
+| Custom Image | Android (2022.10) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/android/2022.10) | [dhrubajyotichakraborty/android-ci-image:latest](https://hub.docker.com/repository/docker/dhrubajyotichakraborty/android-ci-image) | 2.64 GB
+| Custom Image | PHP | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/php) | [dhrubajyotichakraborty/php-ci-img:latest](https://hub.docker.com/repository/docker/dhrubajyotichakraborty/php-ci-img) | 654.11 MB
+
+
 ### How does the custom images work
 1. ```dhrubajyotichakraborty/ruby-ci-img:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a complete Ruby version, the gem command, Bundler and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
 2. ```dhrubajyotichakraborty/openjdk-ci-image:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a version of OpenJDK, the Java Development Kit and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
 3. ```dhrubajyotichakraborty/python-ci-img:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a complete Python version via pyenv. pip, pipenv, and poetry are pre-installed, and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
-> Note - Rust ,PHP and Python images are in progress
+
+> Note - Rust ,PHP, Elixir and Python images are in progress
+
+## Development
+
+Images can be built and run locally with this repository. This has the following requirements:
+
+- Local System of Linux (Ubuntu tested) or macOS
+- Bash (v4+)
+- Docker Engine (v19.03+)
 
 
 ## Contributor License Agreement
