@@ -1,13 +1,12 @@
 # vim:set ft=dockerfile:
 
 # Do not edit individual Dockerfiles manually. Instead, please make changes to the Dockerfile.template, which will be used by the build script to generate Dockerfiles.
-
-FROM dhrubajyotichakraborty/ci-base-img:latest
+FROM harnesscommunity/ci-base-image:latest
 
 LABEL maintainer="Community & CI Engineering team <community-engg@harness.io>"
 
-ENV PHP_VERSION 8.1.11
-ENV PHP_MINOR 8.1
+ENV PHP_VERSION 7.4.32
+ENV PHP_MINOR 7.4
 
 # Install dependencies
 RUN sudo apt-get update && sudo apt-get install -y \
@@ -69,6 +68,15 @@ RUN sudo apt-get update && sudo apt-get install -y \
 		--with-zlib \
 	&& \
 
+	make -j $(nproc) && \
+	sudo make install && \
+	cd .. && \
+	rm -r php-src-php-${PHP_VERSION} && \
+	sudo mkdir -p /etc/php.d && \
+	echo 'memory_limit = -1' | sudo tee -a /etc/php.d/circleci.ini && \
+	sudo pear config-set php_ini /etc/php.d/circleci.ini && \
+	sudo pecl update-channels && \
+
 	# Check things are as they should be
 	# We likely don't need to test EVERYTHING here. What is important is to
 	# test for extensions where the installation method has changed between
@@ -78,7 +86,14 @@ RUN sudo apt-get update && sudo apt-get install -y \
 	php -m | grep "gd" && \
 	php -m | grep "sockets"
 
+# Installs install-php-extensions functionality to add, enable, and configurae PHP extensions. The script is modified to
+# work with CircleCI's environment. Updates to the script should be accompanied with a release in it's respective
+# repositpory
+
+ENV EXT_URL https://github.com/CircleCI-Public/docker-php-extension-installer/releases/latest/download/install-php-extensions
 ENV PHP_INI_DIR /usr/local/etc/php
+
+COPY /docker-php-scripts/docker-php-* /usr/local/bin/
 
 RUN sudo mkdir -p "$PHP_INI_DIR/conf.d"  && \
 	curl -sSL ${EXT_URL} > install-php-extensions && \

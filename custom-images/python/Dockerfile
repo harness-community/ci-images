@@ -1,11 +1,10 @@
 # vim:set ft=dockerfile:
 
-FROM dhrubajyotichakraborty/ci-base-img:latest
+FROM harnesscommunity/ci-base-image:latest
 
 LABEL maintainer="Community & CI Engineering team <community-engg@harness.io>"
 
-ENV PYENV_ROOT=/harness/.pyenv \
-	PATH=/harness/.pyenv/shims:/harness/.pyenv/bin:/harness/.poetry/bin:$PATH
+ENV PYTHON_VERSION 3.10.5
 
 RUN sudo apt-get update && sudo apt-get install -y \
 		build-essential \
@@ -24,7 +23,6 @@ RUN sudo apt-get update && sudo apt-get install -y \
 		libxmlsec1-dev \
 		llvm \
 		make \
-		python-openssl \
 		tk-dev \
 		wget \
 		xz-utils \
@@ -32,7 +30,24 @@ RUN sudo apt-get update && sudo apt-get install -y \
 	curl https://pyenv.run | bash && \
 	sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN pyenv install 3.6.15 && pyenv global 3.6.15
+RUN curl https://pyenv.run | bash
+RUN  pyenv install --list | grep " 3\.[678]" \
+  3.6.0 \
+  3.6-dev \
+  3.6.1 \
+  3.6.2 \
+  3.6.3 \
+  3.6.4 \
+  3.6.5 \
+  3.6.6 \
+  3.6.7 \
+  3.6.8 \
+  3.7.0 \
+  3.7-dev \
+  3.7.1 \
+  3.7.2 \
+  3.8-dev \
+pyenv install -v 3.7.2
 
 RUN python --version && \
 	pip --version && \
