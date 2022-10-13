@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM dhrubajyotichakraborty/node-ci-img:17.9.1
+FROM harnesscommunity/node-ci-image:17.9
 
 LABEL maintainer="CircleCI Community & Partner Engineering Team <community-partner@circleci.com>"
 
