@@ -1,7 +1,9 @@
-FROM ubuntu:20.04
 
-LABEL maintainer="Community Engineering Team <community-engg@harness.io>"
+FROM ubuntu:22.04
 
+LABEL maintainer="Community Engineering Team <community-engg@harness.io.>"
+
+# Change default shell for RUN from Dash to Bash
 SHELL ["/bin/bash", "-exo", "pipefail", "-c"]
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -10,10 +12,11 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 
 RUN noInstallRecommends="" && \
-	if [[ "20.04" == "22.04" ]]; then \
+	if [[ "22.04" == "22.04" ]]; then \
 		noInstallRecommends="--no-install-recommends"; \
 	fi && \
 	apt-get update && apt-get install -y $noInstallRecommends \
+	    elixir \
 		autoconf \
 		build-essential \
 		ca-certificates \
@@ -33,8 +36,8 @@ RUN noInstallRecommends="" && \
 		libssl-dev \
 		libsqlite3-dev \
 		make \
+		python3 \
 		# for ssh-enabled builds
-		nano \
 		net-tools \
 		netcat \
 		openssh-client \
@@ -49,6 +52,7 @@ RUN noInstallRecommends="" && \
 		tar \
 		tzdata \
 		unzip \
+		python3-pip \
 		# for ssh-enabled builds
 		vim \
 		wget \
@@ -72,18 +76,23 @@ RUN apt-get update && apt-get install -y \
 	rm -rf /var/lib/apt/lists/*
 
 # Install Docker Compose - see prerequisite above
-ENV COMPOSE_VER 2.11.2
-ENV COMPOSE_SWITCH_VERSION 1.0.5
+
+ENV COMPOSE_VER 2.11.1
+ENV COMPOSE_SWITCH_VERSION 1.0.4
 RUN dockerPluginDir=/usr/local/lib/docker/cli-plugins && \
 	mkdir -p $dockerPluginDir && \
 	curl -sSL "https://github.com/docker/compose/releases/download/v${COMPOSE_VER}/docker-compose-linux-$(uname -m)" -o $dockerPluginDir/docker-compose && \
 	chmod +x $dockerPluginDir/docker-compose && \
 	curl -fL "https://github.com/docker/compose-switch/releases/download/v${COMPOSE_SWITCH_VERSION}/docker-compose-linux-$(dpkg --print-architecture)" -o /usr/local/bin/compose-switch && \
+	
 	# Quick test of the Docker Compose install
+	
 	docker compose version && \
 	chmod +x /usr/local/bin/compose-switch && \
 	update-alternatives --install /usr/local/bin/docker-compose docker-compose /usr/local/bin/compose-switch 99 && \
+	
 	# Tests if docker-compose for v1 is transposed to v2
+	
 	docker-compose version
 
 RUN curl -sSL "https://github.com/mikefarah/yq/releases/download/v4.27.5/yq_linux_amd64.tar.gz" | \
