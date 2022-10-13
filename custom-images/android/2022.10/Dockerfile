@@ -1,6 +1,6 @@
 # vim:set ft=dockerfile:
 
-FROM dhrubajyotichakraborty/ci-base-img:latest
+FROM harnesscommunity/ci-base-image:latest
 LABEL maintainer="Community & CI Engineering team <community-engg@harness.io>"
 
 # Java 11 is default
