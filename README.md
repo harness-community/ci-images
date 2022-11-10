@@ -49,9 +49,8 @@ Since there are many images, they are in different stages of their life cycle. T
 
 **Images can be built and run locally with this repository. This has the following requirements:**
 
-- Local System of Linux (Ubuntu tested) or macOS
-- Bash (v4+)
-- Docker Engine (v19.03+)
+- Any Linux (Ubuntu preferred) or macOS
+- Docker CE (v19.03+)
 
 **Images can also be built using the Harness CI Pipeline (Reference Pipeline)**
 
