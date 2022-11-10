@@ -8,8 +8,6 @@ RUN curl -L -o node.tar.xz "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NOD
 	rm node.tar.xz && \
 	sudo ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
-ENV PATH /home/circleci/.yarn/bin:$PATH
-
 ENV YARN_VERSION 1.22.18
 RUN curl -L -o yarn.tar.gz "https://yarnpkg.com/downloads/${YARN_VERSION}/yarn-v${YARN_VERSION}.tar.gz" && \
 	sudo tar -xzf yarn.tar.gz -C /opt/ && \
