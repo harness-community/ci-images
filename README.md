@@ -47,12 +47,18 @@ Since there are many images, they are in different stages of their life cycle. T
 
 ## Development
 
-Images can be built and run locally with this repository. This has the following requirements:
+**Images can be built and run locally with this repository. This has the following requirements:**
 
 - Local System of Linux (Ubuntu tested) or macOS
 - Bash (v4+)
 - Docker Engine (v19.03+)
 
+**Images can also be built using the Harness CI Pipeline (Reference Pipeline)**
+
+- Step 1: Fork the [repository](https://github.com/codewdhruv/sample-docker-image-release) & use import from git feature to fetch the ```pipelinereleasesample.yaml``` in Harness App
+- Step 2: Configure the pipeline and remote repository where you are building the image
+- Step 3: Create [Docker Connector](https://docs.harness.io/article/my8n93rxnw-connect-to-harness-container-image-registry-using-docker-connector) for the Docker Registry where you want to push the custom image
+- Step 4: Execute the pipeline and get the custom image released
 
 ## Contributor License Agreement
 
