@@ -1,7 +1,7 @@
 # vim:set ft=dockerfile:
 
 FROM harnesscommunity/ci-base-image:latest
-LABEL maintainer="Community & CI Engineering team <community-engg@harness.io>"
+LABEL maintainer="Harness Community Engineering <community-engineering@harness.io>"
 
 ENV NODE_VERSION 17.9.1
 
