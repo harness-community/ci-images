@@ -29,7 +29,7 @@ RUN curl -sSL -o /tmp/maven.tar.gz http://apache.osuosl.org/maven/maven-3/${MAVE
 	sudo tar -xz -C /usr/local -f /tmp/maven.tar.gz && \
 	sudo ln -sf /usr/local/apache-maven-${MAVEN_VERSION} /usr/local/apache-maven && \
 	rm -rf /tmp/maven.tar.gz && \
-	mkdir -p /home/circleci/.m2
+	mkdir -p /home/harness/.m2
 
 ENV GRADLE_VERSION "7.5.1"
 ENV PATH $PATH:/usr/local/gradle-${GRADLE_VERSION}/bin
