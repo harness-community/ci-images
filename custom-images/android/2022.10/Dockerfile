@@ -39,7 +39,7 @@ RUN URL=https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.z
 	rm -rf /tmp/gradle.zip
 
 # Install Android SDK Tools
-ENV ANDROID_HOME "/home/circleci/android-sdk"
+ENV ANDROID_HOME "/home/harness/android-sdk"
 ENV ANDROID_SDK_ROOT $ANDROID_HOME
 ENV CMDLINE_TOOLS_ROOT "${ANDROID_HOME}/cmdline-tools/latest/bin"
 ENV ADB_INSTALL_TIMEOUT 120
