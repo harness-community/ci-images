@@ -36,12 +36,13 @@ Since there are many images, they are in different stages of their life cycle. T
 | Custom Image | Android (2022.10) | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/android/2022.10) | [harnesscommunity/android:latest](https://hub.docker.com/repository/docker/harnesscommunity/android) | 2.66 GB
 | Custom Image | PHP | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/php) | [harnesscommunity/php:latest](https://hub.docker.com/repository/docker/harnesscommunity/php) | 654.11 MB
 | Custom Image | Postgres | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/postgres) | [harnesscommunity/postgres:14.5](https://hub.docker.com/repository/docker/harnesscommunity/postgres) | 738.22 MB
+| Custom Image | Allure Report | TBU | [Click Here](https://github.com/harness-community/ci-images/tree/main/custom-images/allure) | [harnesscommunity/allure:jdk21](https://hub.docker.com/repository/docker/harnesscommunity/allure) | 619.65 MB
 
 ### How does the custom images work
+
 1. ```harnesscommunity/ruby:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a complete Ruby version, the gem command, Bundler and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
 2. ```harnesscommunity/openjdk:latest```is a Docker image created with continuous integration builds in mind. Each tag contains a version of OpenJDK, the Java Development Kit and any binaries and tools that are required for builds to complete successfully in a Harness CI pipeline.
 3. ```harnesscommunity/android:latest```is a Docker image created with continuous integration builds in mind. Each tag contains an Android environment and toolchain. Including several API SDKs, command line tools, build tools, Ant, Gradle, Google Cloud SDK, and more.
-
 
 > Note - Rust ,PHP, Elixir and Python images are in progress
 
@@ -71,10 +72,8 @@ All users and contributors of the Harness community should adhere to the followi
 
 Refer [Harness Community Communications Guide](https://github.com/harness-community/overview/blob/main/community_communication_guide.rst) to interact with the wider community users/contributors, join slack workgroups to get help/help other users and create topics in [community.harness.io](https://community.harness.io)
 
-### License
+## License
 
 Apache 2.0 License.
 
 See [COPYING](LICENSE) for more information.
-
-
