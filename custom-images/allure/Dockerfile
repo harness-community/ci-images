@@ -28,3 +28,12 @@ RUN curl -sSL -o java.tar.gz "${URL}" && \
 	# The dual version command is to support OpenJDK 8
 	java --version || java -version && \
 	javac --version || javac -version
+
+ENV ALLURE_VERSION=2.30.0 \
+	PATH=/opt/allure/bin:$PATH
+RUN dl_URL="https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${ALLURE_VERSION}/allure-commandline-${ALLURE_VERSION}.zip" && \
+	curl -sSL --fail --retry 3 $dl_URL -o allure-commandline.tar.gz && \
+	sudo unzip allure-commandline.tar.gz -d /opt/ && \
+	rm allure-commandline.tar.gz && \
+	sudo ln -s /opt/allure-* /opt/allure && \
+	allure --version
