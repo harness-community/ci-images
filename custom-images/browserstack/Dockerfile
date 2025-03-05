@@ -15,11 +15,8 @@ COPY --from=browserstack /BrowserStackLocal /BrowserStackLocal
 
 # Install Node.js (Latest LTS Version)
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends curl ca-certificates && \
+    apt-get install -y --no-install-recommends curl && \
     curl -fsSL "https://deb.nodesource.com/setup_20.x" | bash - && \
     apt-get install -y nodejs && \
     npm install -g npm@latest && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Set default entrypoint to BrowserStack Local
-ENTRYPOINT ["/BrowserStackLocal"]
